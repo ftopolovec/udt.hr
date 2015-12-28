@@ -1,0 +1,10 @@
+udthr_content:
+    resource: "@udthrContentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+elfinder:
+    resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

@@ -1,0 +1,47 @@
+{% extends '::base_display.html.twig' %}
+{% block body %}
+    <section id="main-slider" class="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>{{ blog.title }}</h1>
+                        <p class="lead">{{ blog.abstract }}</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.carousel-inner-->
+    </section><!--/#main-slider-->
+
+    <section id="services">
+        <div class="container">
+            <div class="box first">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h1>{{ blog.title }}</h1>
+                        <h5>Objavljeno: {{ blog.date|date('d-m-Y') }}</h5>
+                        {{ blog.content|raw }}
+                    </div>
+                    <div class="col-lg-4">
+                        <h1>Informacije</h1>
+                        <address>
+                            <strong>Udruga dentalnih tehničara RH</strong><br>
+                            Kralja Zvonimira 18 <br>
+                            22320 Drniš <br>
+                            <abbr title="Phone">Mob:</abbr> 098/9657-761 / 092/3024-348 <br>
+                            Email: info@udt.hr
+                        </address>
+                        <address>
+
+                            Matični broj: 4221672 <br>
+                            OIB: 02154369392 <br>
+                            Žiro račun: Splitska banka-IBAN: HR 2423300031153231010 <br>
+                        </address>
+                        {{ facebookButton() }}
+                    </div>
+                </div><!--/.row-->
+            </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+{% endblock %}

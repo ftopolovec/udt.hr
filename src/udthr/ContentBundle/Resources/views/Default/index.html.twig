@@ -1,0 +1,348 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <section id="main-slider" class="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="carousel-content">
+                        <h1>Udruga dentalnih tehničara RH</h1>
+                        <p class="lead">Dobrodošli na našu novu stranicu!</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            {% for blog in blog|reverse|slice(0,3) %}
+            <div class="item">
+                <div class="container">
+                    <div class="carousel-content">
+                        <a href="{{ path('display', {id: blog.id}) }}">
+                        <h1 class="">{{ blog.title }}</h1>
+                            </a>
+                        <p class="lead">{{ blog.abstract }}</p>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            {% endfor %}
+        </div><!--/.carousel-inner-->
+        <a class="prev" href="#main-slider" data-slide="prev"><i class="icon-angle-left"></i></a>
+        <a class="next" href="#main-slider" data-slide="next"><i class="icon-angle-right"></i></a>
+    </section><!--/#main-slider-->
+
+    <section id="services">
+        <div class="container">
+            <div class="box first">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-plus icon-md icon-color1"></i>
+                            <h4>Povratak struke u sustav javnog zdravstva</h4>
+                            <p>Dentalni tehničari su jedina struka izbačena iz zdravstvenog sustava i sustavno se uništava</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-share-alt icon-md icon-color7"></i>
+                            <h4>Izdvajanje iz HKDM</h4>
+                            <p>HKDM ne štiti dentalne tehničare, iako bi trebali imati ista prava kao i ostali članovi</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-home icon-md icon-color1"></i>
+                            <h4>Vlastita komora</h4>
+                            <p>Osnivanje vlastite komore koja će zastupati i štiti prava dentalnih tehničara</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-user icon-md icon-color7"></i>
+                            <h4>Smanjenje komorskih članarina</h4>
+                            <p>Primjereno komorskim članarinama ostalih zdrastvenih radnika srednje stručne spreme</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-briefcase icon-md icon-color1"></i>
+                            <h4>Vlastite cijene</h4>
+                            <p>Sudjelovanje u formiranju cijena naših usluga</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-cog icon-md icon-color7"></i>
+                            <h4>Kvalitetnija produkcija radnih kadrova</h4>
+                            <p>Smanjenje broja škola i prestanak produkcije kadrova koje pune burzu rada</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                    <div class="col-md-4 col-md-offset-4 col-sm-6">
+                        <div class="center">
+                            <i class="icon-bullhorn icon-md icon-color1"></i>
+                            <h4>Informiranje o pravima pacijenata</h4>
+                            <p>Pružanje usluga pacijentima i njihovo upoznavanje sa svim besplatnim uslugama koje su zagarantirane osnovnim(i dopunskim)zdravstvenim osiguranjem</p>
+                        </div>
+                    </div><!--/.col-md-4-->
+                </div><!--/.row-->
+            </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+    <section id="blog">
+        <div class="container">
+            <div class="box">
+                <div class="center gap">
+                    <h2>Novosti</h2>
+                    <p class="lead">Sve novosti vezane uz djelovanje udruge možete pratiti ovdje</p>
+                </div><!--/.center-->
+                <div class="row text-center slick-multislider">
+                    {% for blog in blog|reverse %}
+                    <div class="col-lg-3 col-sm-12">
+                        <a href="{{ path('display', {id: blog.id}) }}">
+                        <img src="uploads/blog_featured/{{ blog.path }}">
+                            </a>
+                        <h4 class="h5-title-margin-top">
+                            <a href="{{ path('display', {id: blog.id}) }}">
+                            {{ blog.title }}
+                            </a>
+                        </h4>
+                        <h6><span class="glyphicon glyphicon glyphicon-calendar"></span> {##}Objavljeno: {{ blog.date|date('d-m-Y') }}</h6>
+                        <div class="title-blue-line-content"></div>
+                        <p align="center">{{ blog.abstract }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#portfolio-->
+
+    <section id="pricing">
+        <div class="container">
+            <div class="box">
+                <div class="center">
+                    <h2>O udruzi</h2>
+                    <p class="lead">Udruga je osnovana radi usklađivanja, zaštite, promicanja prava, <br>zajedničkih strukovnih interesa i ciljeva dentalnih tehničara.</p>
+                    <iframe class="utube" width="560" height="315" src="https://www.youtube.com/embed/r2W-PMyRJfM" frameborder="0" allowfullscreen></iframe>
+                </div><!--/.center-->
+                <div class="big-gap"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Osnivanje udruge</h3>
+                        <p>13.siječnja 2014. g. u Zagrebu u Kući ljudskih prava, je osnovana Udruga dentalnih tehničara RH.
+                            Udruga je nastala kao odgovor na katastrofalno stanje struke dentalnih tehničara i okuplja već oko
+                            150 tehničara iz cijele Hrvatske.</p>
+                        <p>1997.g.privatizacijom Primarne zdravstvene zaštite, struka je izbačena iz zdravstvenog sustava
+                            čime su nam povrijeđena radna,ljudska i moralna prava. Svakom daljnjom izmjenom i dopunom
+                            Zakona o zdravstvenoj zaštiti, ta se prava sve više urušavaju i struka se potpuno marginalizira.</p>
+                        <p>01.travnja 2013. novim modelom ugovaranja stomatologa s HZZO-om, evidentno je da
+                            dentalni tehničari postaju nezaštičena najamna radna snaga, koja bi trebala služiti za bogaćenje
+                            određenih zdravstvenih struktura. Tim novim ugovaranjem,stomatolozima je uplaćeno 200 milijuna kuna godišnje više iz državnog proračuna u vrijeme ove velike krize, a dentalni tehničari u DZ-a, zakupu i privatnim laboratorijima ostaju bez posla.</p>
+                        <h3>Kako je to moguće, kad se zna da preko radnih naloga tehničari odrade preko 150 milijuna kuna protetskih radova godišnje?</h3>
+                        <p>Ta sredstva bi bila dostatna za zapošljavanje preko 1100 dentalnih tehničara u zdravstvenom sustavu
+                            u kojem je zaposleno oko 100 koji nisu dovoljno iskorišteni.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Kako je moguće da se proračunski miljuni preko radnih naloga kanaliziraju u privatne ruke i
+                            time se pogoduje cvjetanju sivog tržišta?</h3>
+                        <p>Sve ove godine nitko nije uvažavao nastojanja naših kolega da se ta nepravda ispravi.
+                            Ulaskom HKDM dolazimo u još teži položaj, jer komora cijalo vrijeme ima monopol nad našim
+                            radom i cijenama.</p>
+                        <p>HKDM ne štiti dentalne tehničare, iako bi trebali imati ista prava kao i ostali članovi.
+                            Članarine su nam jednake, ali ne i prava. Komora nije zastupala, ni pružila pravnu podršku našim kolegama
+                            koji  sudskim putem traže zakonom zagarantirano pravo povratka u DZ-a.</p>
+                        <p>Dentalni tehničari su jedina struka izbačena iz zdravstvenog sustava i sustavno se uništava
+                            punih 18 g., bez prava na članstvo u sindikatu,  bez pravo na odlazak na burzu rada, bez
+                            prava na fiksno radno vrijeme, bez prava na godišnji odmor, bez prava da sami sudjeluju u
+                            kreiranju cijena rada i materijala. A preko radnih naloga godišnje odrade preko 150 milijuna kuna protetskih radova .</p>
+                        <p>Kako je moguće da se otvaraju škole koje samo školuju kadrove za privatne interese i burzu rada?</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Što čeka buduće generacije djece, koja u samom startu nemaju šanse za posao?</h3>
+                        <p>Ovo se mora zaustaviti. Ovo stanje potkopava državu i zdravstvo. Pacijenti sve više izdvajaju za zdravstvenu skrb,
+                            a  njihova su prava sve manja i usluge sve manje dostupne.
+                            Mjerodavne institucije su odavno upoznate s ovom nepravdom, koju doživljavaju dentalni tehničari
+                            i vrijeme je da tu nepravdu isprave.</p><p>
+                            Dosta je iskorištavanja malih ljudi i besramnog bogaćenja preko njihovih leđa.
+                            Dentalni tehničari se moraju vratiti u sustav javnog zdravstva, jer <br>NEMA POTPUNE STOMATOLOŠKE ZDRAVSTVENE ZAŠTITE BEZ DENTALNIH TEHNIČARA! </p>
+                    </div>
+                </div>
+                <div class="big-gap"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Djelovanje udruge</h3>
+                        <p>Od dana osnivanja, udruga je krenula sa upoznavanjem institucija sa lošim položajem dentalnih tehničara, ujedno tražeći pomoć u rješavanju naših problema, kao i zaustavljanje daljnjeg propadanja struke. Dopisi su upućeni Vladi Republike Hrvatske-Ured predsjenika, ministarstvu financija, ministarstvu pravosuđa kao i ministarstvu zdravlja.Dopisi iz ministarstva pravosuđa i financija su proslijeđeni ministarstvu zdravlja, a Ured predsjednika je tražio žurno razmatranje predmeta kao izvješće o poduzetom.</p>
+
+                        <p>Temeljem tog zahtjeva,ministarstvo zdravlja se 2 puta obrača udruzi,gdje prvi put govori o zahtjevnosti provođenja procedure prestanka rada u zakupu i svrstava nas u članak 215.Zakona o zdravstvenoj zaštiti.Drugi odgovor govori kako će postojeće stanje pokušati riješiti kroz novi Zakon o zdravstvenoj zaštiti.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Rezime odgovora</h3>
+                        <p>Iz svih ovih odgovora razvidno je da ministarstvo zdravlja i HZZO ne žele znati o načinu izgona dentalnih tehničara iz zdravstvenog sustava,nisu upoznati s člankom Zakona o zdravstvenoj zaštiti pod koji pripadaju tehničari,kao ni o Zakonu o zdrav. zaštiti donešenom 25.siječnja2012.g. potpisanog od Premijera,Predsjednika Hrvatskog sabora i Predsjednika Republike Hrvatske.</p>
+                        <p>Nejasno je kako mjerodavne institucije nisu upoznate s problematikom,kad znamo da naše kolege već godinama ukazuju na sve te nepravilnosti i kršenje zakona.</p>
+                        <p>Čemu da se nadaju građani republike Hrvatske kad se ne poštuju zakonski akti donešeni i potpisani od najvećih autoriteta države.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>U privitku istog dopisa,dostavlja se i odgovor ravnatelja HZZO-a, gdje se ističe:</h3>
+                        <p>Kako je novi način ugovaranja dentalne zdravstvene zaštite od 1.travnja.2013., usmjeren na poticanje rada i podizanje kvalitete zdravstvene zaštite na način da učinkovitost i kvaliteta postanu mjerljivi i vrednovani i kao takvi potaknu doktore u njihovom daljnjem radu</p>
+
+                        <p>Kako je novi sustav osmišljen na način da maksimalo stimulira doktore dentalne medicine u radu preventive,koja je dugi niz godina bila potpuno zanemarena</p>
+
+                        <p>Kako liste čekanja u dentalnoj protetici ne postoje dapače</p>
+
+                        <p>Da je činjenično stanje kod pojedinih laboratorija zaista loše ali su to posljedice sustava u kojem su se određeni laboratoriji našli. Od njihove želje da izađu iz domova zdravlja i uključe se u tržišnu utakmicu, do pokušaja povratka DZ-a onih, koji se u tome nisu snašli. Pojedini ravnatelj DZ-a im to omogućavaju a pojedini smatraju da bi im preuzimanje dentalnih tehničara uzrokovalo dodatne izdatke. Ta problematika nije u nadležnosti Zavoda, budući da takvu odluku donosi isključivo lokalna uprava i samouprava, odnosno ravnatelj DZ.</p>
+                    </div>
+                </div>
+            </div>
+    </section><!--/#pricing-->
+
+    <section id="akti">
+        <div class="container">
+            <div class="box">
+                <div class="center gap">
+                    <h2>Akti</h2>
+                </div><!--/.center-->
+                <div class="row text-center slick-multislider">
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Rješenje</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/rjesenje.pdf') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Obrazloženje</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/obrazlozenje.pdf') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Statut</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/statut.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Ciljevi i djelatnosti udruge</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/ciljevi-i-djelatnosti-udruge.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Članstvo u udruzi</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/clanstvo-u-udruzi.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Tijela udruge / skupština</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/tijela-udruge-skupstina.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Skupština / predsjednik</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/skupstina-predsjednik.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Upravni odbor</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/upravni-odbor.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Imovina i način stjecanja imovine</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/imovina-i-nacin-stjecanja-imovine.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-12">
+                        <h5 class="h5-title-margin-top">Prijelazne i završne odredbe</h5>
+                        <div class="title-blue-line-content"></div>
+                        <p><a href="{{ asset('akti/prijelazne-i-zavrsne-odredbe.jpg') }}">Preuzmite dokument</a></p>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#portfolio-->
+    <section id="contact">
+        <div class="container">
+            <div class="box last">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Kontaktirajte nas</h1>
+                        <p>Ukoliko imate pitanje ili komentar javite nam se.</p>
+                        <div class="alert-success" >
+                            {% for label, flashes in app.session.flashbag.all %}
+                                {% for flash in flashes %}
+                                    <div class="alert alert-{{ label }}">
+                                        {{ flash }}
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {{ form_start(form, {'class' : 'null'}) }}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.ime) }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        {{ form_row(form.email) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        {{ form_row(form.poruka) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_row(form.submit) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+                    </div><!--/.col-sm-6-->
+                    <div class="col-sm-6">
+                        <h1>Gdje smo?</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <address>
+                                    <strong>Udruga dentalnih tehničara RH</strong><br>
+                                    Kralja Zvonimira 18 <br>
+                                    22320 Drniš <br>
+                                    <abbr title="Phone">Mob:</abbr> 098/9657-761 / 092/3024-348 <br>
+                                    Email: info@udt.hr
+                                </address>
+                            </div>
+                            <div class="col-md-6">
+                                <address>
+
+                                    Matični broj: 4221672 <br>
+                                    OIB: 02154369392 <br>
+                                    Žiro račun: Splitska banka-IBAN: HR 2423300031153231010 <br>
+                                </address>
+                            </div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="social">
+                                    <li><a href="#"><i class="icon-facebook icon-social"></i> Facebook</a></li>
+                                </ul>
+                                {% if is_granted('ROLE_USER') %}
+                                    <ul class="social">
+                                        <li><a href="{{ path('cms_blog_index') }}">CMS</a></li>
+                                        <li><a href="{{ path('logout') }}">Odjava</a></li>
+                                    </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="social">
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--/.col-sm-6-->
+                </div><!--/.row-->
+            </div><!--/.box-->
+        </div><!--/.container-->
+    </section><!--/#contact-->
+
+{% endblock %}

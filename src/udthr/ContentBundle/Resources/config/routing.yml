@@ -1,0 +1,25 @@
+udthr_content_cms_blog:
+    resource: "@udthrContentBundle/Resources/config/routing/blog.yml"
+    prefix:   /cms/blog
+
+udthr_content_cms_user:
+    resource: "@udthrContentBundle/Resources/config/routing/user.yml"
+    prefix:   /cms/user
+
+udthr_content_homepage:
+    path:     /
+    defaults: { _controller: udthrContentBundle:Default:index }
+
+login:
+    path: /login
+    defaults: { _controller: udthrContentBundle:Security:login }
+
+login_check:
+    path: /login_check
+
+logout:
+    pattern: /logout
+
+display:
+    path: /novost/{id}
+    defaults: { _controller: udthrContentBundle:Default:display }

@@ -1,0 +1,24 @@
+cms_blog_index:
+    path:     /
+    defaults: { _controller: "udthrContentBundle:Blog:index" }
+    methods:  GET
+
+cms_blog_show:
+    path:     /{id}/show
+    defaults: { _controller: "udthrContentBundle:Blog:show" }
+    methods:  GET
+
+cms_blog_new:
+    path:     /new
+    defaults: { _controller: "udthrContentBundle:Blog:new" }
+    methods:  [GET, POST]
+
+cms_blog_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "udthrContentBundle:Blog:edit" }
+    methods:  [GET, POST]
+
+cms_blog_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "udthrContentBundle:Blog:delete" }
+    methods:  DELETE
